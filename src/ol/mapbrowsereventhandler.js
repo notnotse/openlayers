@@ -104,7 +104,7 @@ ol.MapBrowserEventHandler = function(map) {
    * @type {number}
    * @private
    */
-  this.moveTolerance_ = ol.has.DEVICE_PIXEL_RATIO;
+  this.moveTolerance_ = ol.has.DEVICE_PIXEL_RATIO * 8;
 };
 ol.inherits(ol.MapBrowserEventHandler, ol.events.EventTarget);
 
