@@ -1,6 +1,6 @@
 // OpenLayers 3. See https://openlayers.org/
 // License: https://raw.githubusercontent.com/openlayers/ol3/master/LICENSE.md
-// Version: v3.20.1
+// Version: v3.20.1-3-gdbe9080
 ;(function (root, factory) {
   if (typeof exports === "object") {
     module.exports = factory();
@@ -16971,7 +16971,7 @@ ol.MapBrowserEventHandler = function(map) {
    * @type {number}
    * @private
    */
-  this.moveTolerance_ = ol.has.DEVICE_PIXEL_RATIO;
+  this.moveTolerance_ = ol.has.DEVICE_PIXEL_RATIO * 8;
 };
 ol.inherits(ol.MapBrowserEventHandler, ol.events.EventTarget);
 
@@ -92557,7 +92557,7 @@ goog.exportProperty(
     ol.control.ZoomToExtent.prototype,
     'unByKey',
     ol.control.ZoomToExtent.prototype.unByKey);
-ol.VERSION = 'v3.20.1';
+ol.VERSION = 'v3.20.1-3-gdbe9080';
 OPENLAYERS.ol = ol;
 
   return OPENLAYERS.ol;
