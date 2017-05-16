@@ -91,14 +91,14 @@ checkout_tag() {
 main() {
   root=$(cd -P -- "$(dirname -- "${0}")" && pwd -P)/..
   cd ${root}
-  assert_clean
-  checkout_tag ${1}
-  assert_version_match ${1}
+# assert_clean
+#  checkout_tag ${1}
+#  assert_version_match ${1}
   rm -rf ${BUILDS}
   npm install
   build_js ${PROFILES}
   build_css
-  npm publish
+#  npm publish
 }
 
 if test ${#} -ne 1; then

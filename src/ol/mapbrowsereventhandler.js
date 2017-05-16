@@ -1,6 +1,7 @@
 goog.provide('ol.MapBrowserEventHandler');
 
 goog.require('ol');
+goog.require('ol.has');
 goog.require('ol.MapBrowserEvent');
 goog.require('ol.MapBrowserPointerEvent');
 goog.require('ol.events');
@@ -99,6 +100,11 @@ ol.MapBrowserEventHandler = function(map) {
       ol.pointer.EventType.POINTERMOVE,
       this.relayEvent_, this);
 
+  /**
+   * @type {number}
+   * @private
+   */
+  this.moveTolerance_ = ol.has.DEVICE_PIXEL_RATIO;
 };
 ol.inherits(ol.MapBrowserEventHandler, ol.events.EventTarget);
 
@@ -284,8 +290,8 @@ ol.MapBrowserEventHandler.prototype.relayEvent_ = function(pointerEvent) {
  * @private
  */
 ol.MapBrowserEventHandler.prototype.isMoving_ = function(pointerEvent) {
-  return pointerEvent.clientX != this.down_.clientX ||
-      pointerEvent.clientY != this.down_.clientY;
+  return Math.abs(pointerEvent.clientX - this.down_.clientX) > this.moveTolerance_ ||
+       Math.abs(pointerEvent.clientY - this.down_.clientY) > this.moveTolerance_;
 };
 
 
