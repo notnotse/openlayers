@@ -151,6 +151,13 @@ ol.source.VectorTile.prototype.getTileGridForProjection = function(projection) {
   return tileGrid;
 };
 
+/**
+ * Override tile grid for specific projection.
+ * @api
+ */
+ol.source.VectorTile.prototype.setTileGridForProjection = function(projection, tileGrid) {
+  this.tileGrids_[projection] = tileGrid;
+}
 
 /**
  * @inheritDoc
