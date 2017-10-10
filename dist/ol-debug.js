@@ -1,6 +1,6 @@
 // OpenLayers. See https://openlayers.org/
 // License: https://raw.githubusercontent.com/openlayers/openlayers/master/LICENSE.md
-// Version: v4.4.1
+// Version: v4.4.1-1-gcd61eda
 ;(function (root, factory) {
   if (typeof exports === "object") {
     module.exports = factory();
@@ -79663,6 +79663,7 @@ ol.VectorTile.prototype.disposeInternal = function() {
 /**
  * Gets the extent of the vector tile.
  * @return {ol.Extent} The extent.
+ * @api
  */
 ol.VectorTile.prototype.getExtent = function() {
   return this.extent_ || ol.VectorTile.DEFAULT_EXTENT;
@@ -82456,6 +82457,11 @@ goog.exportSymbol(
     'ol.tilegrid.createXYZ',
     ol.tilegrid.createXYZ,
     OPENLAYERS);
+
+goog.exportProperty(
+    ol.VectorTile.prototype,
+    'getExtent',
+    ol.VectorTile.prototype.getExtent);
 
 goog.exportProperty(
     ol.VectorTile.prototype,
@@ -95301,7 +95307,7 @@ goog.exportProperty(
     ol.control.ZoomToExtent.prototype,
     'un',
     ol.control.ZoomToExtent.prototype.un);
-ol.VERSION = 'v4.4.1';
+ol.VERSION = 'v4.4.1-1-gcd61eda';
 OPENLAYERS.ol = ol;
 
   return OPENLAYERS.ol;
